@@ -108,12 +108,6 @@ img.banner {
     font-weight: var(--font-weight-black);
 }
 
-/* Weather Widget */
-.weather {
-    font-size: var(--font-size-32);
-    font-weight: var(--font-weight-bold);
-}
-
 /* Card */
 .tag {
     font-size: var(--font-size-16);
