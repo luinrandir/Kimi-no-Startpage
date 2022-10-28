@@ -86,7 +86,7 @@ img.banner {
     justify-items: center;
     align-items: center;
     background-color: var(--color-accent);
-    width: 75%;
+    width: 850px;
     margin: 5rem auto;
     border-radius: 15px;
     text-align: center;
