@@ -129,15 +129,14 @@ img.banner {
 
 /* Box Shadows */
 .card {
-    box-shadow: 0px 0px 0px;
-    border-radius: 0px;
-    transition: box-shadow 0.3s, border 0.9s linear;
+    border-radius: 15px;
+    border: 1px solid var(--color-accent);
+    transition: border-color 0.3s ease-in-out, box-shadow 0.6s ease-in-out;
 }
 
 .card:hover {
     box-shadow: 15px 15px 10px var(--color-secondary);
-    border: 1px solid var(--color-secondary);
-    border-radius: 15px;
+    border-color: var(--color-secondary);
 }
 
 /* Link tags style */
