@@ -106,7 +106,6 @@ img.banner {
 .time {
     font-size: var(--font-size-64);
     font-weight: var(--font-weight-black);
-    text-shadow: 1px;
 }
 
 /* Card */

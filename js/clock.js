@@ -16,11 +16,4 @@ function showTime() {
   current_time + " " + jDays[time.getDay()];
 }
 
-function displayToday() {
-  const date = new Date();
-  let today = date.toDateString();
-  document.getElementById("date").innerHTML = today;
-}
-
-displayToday();
 showTime();
