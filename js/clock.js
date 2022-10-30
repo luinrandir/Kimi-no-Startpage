@@ -4,7 +4,7 @@
 // to switch to English days and AM | PM by double clicking the clock.
 
 // Global const variables
-const ENGLISH_DAYS = ["M", "T", "W", "Th", "F", "S", "Su"];
+const ENGLISH_DAYS = ["Su", "M", "T", "W", "Th", "F", "S"];
 const JAPANESE_DAYS = ["日", "月", "火", "水", "木", "金", "土"];
 const JAPANESE_AMPM = ["午前", "午後"];
 const ENGLISH_AMPM = ["am", "pm"];
