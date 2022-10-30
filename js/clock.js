@@ -1,19 +1,50 @@
-// Clock
+// clock.js
+// Simple clock that displays current time in HH:MM AM|PM DAY format.
+// Japanese days and AM | PM are used instead by default with an option
+// to switch to English days and AM | PM by double clicking the clock.
 
-const jDays = ["日", "月", "火", "水", "木", "金", "土"];
-setInterval(showTime, 1000);
+// Global const variables
+const ENGLISH_DAYS = ["M", "T", "W", "Th", "F", "S", "Su"];
+const JAPANESE_DAYS = ["日", "月", "火", "水", "木", "金", "土"];
+const JAPANESE_AMPM = ["午前", "午後"];
+const ENGLISH_AMPM = ["am", "pm"];
 
-function showTime() {
-  let time = new Date();
-  let hour = time.getHours() > 12 ? time.getHours() - 12 
-    : time.getHours() === 0 ?  "12"
-    : "0" + time.getHours();
+// Language display flag
+let setToEnglish = false;
 
-  let min = time.getMinutes() < 10 ? "0" + time.getMinutes() : time.getMinutes();
-  let am_pm = time.getHours() > 12 ? "PM" : "AM";
-  let current_time = hour + ":" + min + am_pm;
-  document.getElementById("clock").innerHTML =
-  current_time + " " + jDays[time.getDay()];
+// Main function
+function displayTime() {
+  let date = new Date();
+  let hour = setHour(date.getHours());
+  let minute =
+    date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
+  let midday = setMidday(date.getHours());
+  let day = setToEnglish
+    ? ENGLISH_DAYS[date.getDay()]
+    : JAPANESE_DAYS[date.getDay()];
+
+  document.getElementById("clock").innerText = `${hour}:${minute}`;
+  document.getElementById("clock-info").innerText = `${midday} ${day}`;
 }
 
-showTime();
+function setHour(hour) {
+  if (hour === 0) {
+    return 12;
+  }
+  if (hour > 12) {
+    hour -= 12;
+  }
+  return hour < 10 ? "0" + hour : hour;
+}
+
+function setMidday(hour) {
+  if (hour >= 12) return setToEnglish ? ENGLISH_AMPM[1] : JAPANESE_AMPM[1];
+  return setToEnglish ? ENGLISH_AMPM[0] : JAPANESE_AMPM[0];
+}
+
+setInterval(displayTime, 1000);
+displayTime();
+
+function setLanguage() {
+  setToEnglish = !setToEnglish;
+}
